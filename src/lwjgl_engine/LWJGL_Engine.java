@@ -19,13 +19,13 @@ public class LWJGL_Engine {
         window.setBackgroundColor(1.0f, 0.0f, 0.0f);
         
         Model model = new Model(new float[]{
-           -0.5f, 0.5f, 0.0f, //TOP LEFT
-           0.5f, 0.5f, 0.0f, //TOP RIGHT
-           0.5f, -0.5f, 0.0f, //BOTTOM RIGHT
-           
-           -0.5f, -0.5f, 0.0f, //BOTTOM LEFT
-           0.5f, -0.5f, 0.0f, //BOTTOM RIGHT
-           -0.5f, 0.5f, 0.0f //TOP LEFT
+           -0.5f, 0.5f, 0.0f, //TOP LEFT 0
+           0.5f, 0.5f, 0.0f, //TOP RIGHT 1
+           -0.5f, -0.5f, 0.0f, //BOTTOM LEFT 2
+           0.5f, -0.5f, 0.0f, //BOTTOM RIGHT 3
+        }, new int[]{
+            0, 1, 2,
+            2, 3, 1
         });
         model.create();
 
