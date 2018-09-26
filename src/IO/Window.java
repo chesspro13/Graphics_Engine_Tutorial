@@ -1,5 +1,6 @@
 package IO;
 
+import com.sun.javafx.geom.Vec3f;
 import java.nio.DoubleBuffer;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.glfw.GLFW;
@@ -24,13 +25,12 @@ public class Window {
     private double fps;
     private double fpsCap;
 
-    //private Vector3f backgroundColor;
+    private Vec3f backgroundColor;
 
     public Window(int width, int height, String title, int fps) {
         this.width = width;
         this.height = height;
         this.title = title;
-
         keys = new boolean[GLFW.GLFW_KEY_LAST];
         mouseButtons = new boolean[GLFW.GLFW_MOUSE_BUTTON_LAST];
 
