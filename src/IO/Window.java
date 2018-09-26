@@ -6,6 +6,7 @@ import org.lwjgl.BufferUtils;
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.glfw.GLFWVidMode;
 import org.lwjgl.opengl.GL;
+import org.lwjgl.opengl.GL11;
 
 /**
  *
@@ -36,6 +37,7 @@ public class Window {
 
         this.fpsCap = 1.0 / fps;
         processedTime = 0;
+        backgroundColor = new Vec3f(0f, 0f, 0f);
     }
 
     public void create() {
@@ -75,6 +77,8 @@ public class Window {
         for (int i = 0; i < GLFW.GLFW_MOUSE_BUTTON_LAST; i++) {
             mouseButtons[i] = isMouseDown(i);
         }
+        GL11.glClearColor(backgroundColor.x, backgroundColor.y, backgroundColor.z, 1.0f);
+        GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
         GLFW.glfwPollEvents();
     }
 
@@ -157,5 +161,10 @@ public class Window {
 
     public double getFPS() {
         return fpsCap;
+    }
+    
+    public void setBackgroundColor( float r, float g, float b )
+    {
+        backgroundColor = new Vec3f(r, g, b);
     }
 }
